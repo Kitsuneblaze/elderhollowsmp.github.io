@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f1a;
+  color: white;
+  text-align: center;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #8A2BE2, #6C2BDE);
+  padding: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(138,43,226,0.4);
+}
+
+/* CONTAINER */
+.container {
+  padding: 40px;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: #8A2BE2;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #6C2BDE;
+  transform: scale(1.05);
+}
+
+/* BOX RULES */
+.box {
+  margin-top: 40px;
+  background: #1a1a2e;
+  padding: 20px;
+  border-radius: 15px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 15px rgba(138,43,226,0.3);
+}
+
+/* SHOP GRID */
+.shop-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card {
+  background: #1a1a2e;
+  padding: 20px;
+  border-radius: 15px;
+  width: 200px;
+  box-shadow: 0 0 15px rgba(138,43,226,0.3);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* SOON TEXT */
+.soon {
+  margin-top: 30px;
+  color: #aaa;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background: #111;
+  color: #777;
+}

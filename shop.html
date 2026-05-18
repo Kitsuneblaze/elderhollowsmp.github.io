@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElderHollowSMP - Shop</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+}
+
+/* Glow background */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, rgba(122,44,255,0.25), transparent 60%);
+    z-index: -1;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 90px 20px 30px;
+}
+
+h1 {
+    font-size: 55px;
+    color: #7a2cff;
+    text-shadow: 0 0 25px rgba(122,44,255,0.4);
+}
+
+.subtitle {
+    color: #bbb;
+    margin-top: 10px;
+}
+
+/* BACK BUTTON */
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #7a2cff;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.back:hover {
+    background: #5a1fd6;
+    transform: scale(1.05);
+}
+
+/* SHOP */
+.shop {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(122,44,255,0.25);
+    border-radius: 15px;
+    padding: 25px;
+    width: 260px;
+    text-align: center;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #7a2cff;
+}
+
+.rank {
+    font-size: 22px;
+    color: #7a2cff;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 18px;
+    color: #ccc;
+    margin: 10px 0;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #7a2cff;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #5a1fd6;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-size: 13px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>🛒 ElderHollow Shop</h1>
+    <p class="subtitle">Buy ranks using ElHollow currency</p>
+
+    <a class="back" href="index.html">⬅ Back to Home</a>
+</header>
+
+<div class="shop">
+
+    <div class="card">
+        <div class="rank">⭐ VIP</div>
+        <div class="price">500 ElHollow</div>
+        <p>• VIP Prefix</p>
+        <p>• /hat command</p>
+        <p>• 2 homes</p>
+        <a class="btn" href="checkout.html?item=VIP&price=500">Buy</a>
+    </div>
+
+    <div class="card">
+        <div class="rank">🔥 MVP</div>
+        <div class="price">1200 ElHollow</div>
+        <p>• MVP Prefix</p>
+        <p>• /fly (no combat)</p>
+        <p>• 5 homes</p>
+        <a class="btn" href="checkout.html?item=MVP&price=1200">Buy</a>
+    </div>
+
+    <div class="card">
+        <div class="rank">👑 LEGEND</div>
+        <div class="price">2500 ElHollow</div>
+        <p>• Custom Prefix</p>
+        <p>• Full /fly</p>
+        <p>• 10 homes</p>
+        <p>• Special effects</p>
+        <a class="btn" href="checkout.html?item=LEGEND&price=2500">Buy</a>
+    </div>
+
+    <div class="card">
+        <div class="rank">🌌 HOLLOW</div>
+        <div class="price">3100 ElHollow</div>
+        <p>• Ultra Custom Prefix</p>
+        <p>• 15 homes</p>
+        <p>• Special effects</p>
+        <p>• Access Owner Chat</p>
+        <a class="btn" href="checkout.html?item=HOLLOW&price=3100">Buy</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 ElderHollowSMP • In-game currency only • Beta Shop
+</footer>
+
+</body>
+</html>
