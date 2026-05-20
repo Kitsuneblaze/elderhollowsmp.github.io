@@ -1,103 +1,416 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: white;
+/* =========================
+   ELDERHOLLOWSMP PREMIUM CSS
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* background premium */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+
     background:
-        radial-gradient(circle at top, rgba(122,44,255,0.35), transparent 60%),
-        radial-gradient(circle at bottom, rgba(60,0,120,0.15), transparent 70%);
-    z-index: -1;
+    radial-gradient(circle at top,
+    rgba(122,44,255,0.22),
+    transparent 60%),
+
+    radial-gradient(circle at bottom,
+    rgba(60,0,120,0.18),
+    transparent 60%);
+
+    z-index:-2;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 90px 20px 40px;
+/* glow particles */
+body::after{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+
+    background-image:
+    radial-gradient(rgba(122,44,255,0.12) 1px, transparent 1px);
+
+    background-size:50px 50px;
+
+    z-index:-1;
+    opacity:0.25;
 }
 
-h1 {
-    font-size: 52px;
-    color: #a56bff;
-    text-shadow: 0 0 25px rgba(122,44,255,0.4);
-    letter-spacing: 1px;
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    width:100%;
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 50px;
+
+    background:rgba(0,0,0,0.88);
+
+    border-bottom:
+    1px solid rgba(122,44,255,0.2);
+
+    position:sticky;
+    top:0;
+
+    backdrop-filter:blur(10px);
+
+    z-index:999;
 }
 
-.subtitle {
-    color: #aaa;
+.logo{
+    font-size:24px;
+    font-weight:bold;
+
+    color:#7a2cff;
+
+    text-shadow:
+    0 0 15px rgba(122,44,255,0.5);
 }
 
-/* SHOP LAYOUT (plus clean sans changer HTML) */
-.shop {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px;
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
-/* CARD PREMIUM UPGRADE */
-.card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(122,44,255,0.18);
-    border-radius: 16px;
-    padding: 25px;
-    width: 260px;
-    text-align: center;
-    transition: 0.25s;
-    backdrop-filter: blur(10px);
-    position: relative;
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.2s;
+    position:relative;
 }
 
-/* hover plus premium */
-.card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(122,44,255,0.45);
-    box-shadow: 0 12px 35px rgba(122,44,255,0.18);
+.nav-links a:hover{
+    color:#7a2cff;
 }
 
-/* RANK */
-.rank {
-    font-size: 22px;
-    color: #b58cff;
-    margin-bottom: 10px;
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-5px;
+
+    background:#7a2cff;
+
+    transition:0.25s;
 }
 
-/* PRICE */
-.price {
-    color: #ccc;
-    margin: 10px 0;
+.nav-links a:hover::after{
+    width:100%;
 }
 
-/* BUTTON upgrade sans changer HTML */
-.btn {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 10px 18px;
-    background: rgba(122,44,255,0.8);
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-    transition: 0.2s;
-    box-shadow: 0 0 15px rgba(122,44,255,0.15);
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:92vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
 }
 
-.btn:hover {
-    background: #5a1fd6;
-    transform: scale(1.05);
+.hero-box{
+    width:100%;
+    max-width:1300px;
+
+    text-align:center;
+
+    padding:120px 40px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    180deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.02)
+    );
+
+    border:
+    1px solid rgba(122,44,255,0.2);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+    0 0 40px rgba(122,44,255,0.08);
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #666;
-    font-size: 13px;
+.hero h1{
+    font-size:78px;
+    font-weight:900;
+
+    margin-bottom:20px;
+
+    text-shadow:
+    0 0 30px rgba(122,44,255,0.5);
+}
+
+.hero p{
+    font-size:20px;
+    color:#b9b9b9;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+    margin-top:40px;
+}
+
+.button{
+    display:inline-block;
+
+    padding:15px 30px;
+    margin:10px;
+
+    border-radius:12px;
+
+    background:#7a2cff;
+
+    color:white;
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:0.25s;
+
+    box-shadow:
+    0 0 20px rgba(122,44,255,0.18);
+}
+
+.button:hover{
+    transform:translateY(-4px);
+
+    background:#5f1fe0;
+
+    box-shadow:0 0 30px rgba(122,44,255,0.45);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    width:100%;
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:90px 20px;
+}
+
+section h2{
+    font-size:42px;
+    margin-bottom:30px;
+
+    text-align:center;
+}
+
+/* =========================
+   CARD GRID
+========================= */
+
+.card-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(122,44,255,0.15);
+    border-radius:20px;
+    padding:30px;
+    transition:0.25s;
+    backdrop-filter:blur(6px);
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#7a2cff;
+    box-shadow:0 0 25px rgba(122,44,255,0.18);
+}
+
+.card h3{
+    color:#7a2cff;
+    margin-bottom:18px;
+    font-size:22px;
+}
+
+.card p{
+    color:#d1d1d1;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+/* =========================
+   SHOP GRID
+========================= */
+
+.shop-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* =========================
+   SHOP CARD (FIX IMPORTANT)
+========================= */
+
+.shop-card{
+    overflow:hidden;
+    border-radius:24px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(122,44,255,0.15);
+    transition:0.3s;
+
+    /* 🔥 FIX IMPORTANT POUR TES RANKS */
+    display:flex;
+    flex-direction:column;
+}
+
+.shop-card:hover{
+    transform:translateY(-8px);
+    border-color:#7a2cff;
+    box-shadow:0 0 30px rgba(122,44,255,0.18);
+}
+
+/* fake image top */
+.shop-image{
+    height:220px;
+    width:100%;
+    background:
+    linear-gradient(
+    135deg,
+    rgba(122,44,255,0.55),
+    rgba(0,0,0,0.85)
+    );
+}
+
+/* shop content */
+.shop-content{
+    padding:28px;
+}
+
+.shop-content h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.price{
+    color:#c090ff;
+    margin-bottom:18px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:45px;
+    color:#666;
+    border-top:1px solid rgba(122,44,255,0.15);
+    margin-top:70px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:52px;
+    }
+
+    .hero-box{
+        padding:90px 25px;
+    }
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .nav-links{
+        gap:15px;
+    }
+
+    section h2{
+        font-size:34px;
+    }
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        flex-direction:column;
+        height:auto;
+        padding:20px;
+    }
+
+    .nav-links{
+        margin-top:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .button{
+        width:100%;
+        max-width:300px;
+    }
 }
