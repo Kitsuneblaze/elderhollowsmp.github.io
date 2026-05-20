@@ -6,216 +6,300 @@
 <title>ElderHollowSMP</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #000;
-    color: white;
-    overflow-x: hidden;
+body{
+    font-family:Arial,sans-serif;
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
 }
 
-/* 🔮 BACKGROUND GLOW */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
+/* BACKGROUND */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
     background:
-        radial-gradient(circle at top, rgba(122,44,255,0.35), transparent 55%),
-        radial-gradient(circle at bottom, rgba(80,0,255,0.15), transparent 60%);
-    z-index: -1;
+    radial-gradient(circle at top, rgba(122,44,255,0.25), transparent 60%),
+    radial-gradient(circle at bottom, rgba(80,0,180,0.15), transparent 60%);
+    z-index:-1;
 }
 
-/* subtle animated grain */
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
-    opacity: 0.03;
-    z-index: -1;
+/* NAVBAR */
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background:rgba(0,0,0,0.85);
+    border-bottom:1px solid rgba(122,44,255,0.2);
+    position:sticky;
+    top:0;
+    z-index:999;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 140px 20px 70px;
+.logo{
+    color:#7a2cff;
+    font-size:24px;
+    font-weight:bold;
+    text-shadow:0 0 15px rgba(122,44,255,0.5);
 }
 
-h1 {
-    font-size: 72px;
-    font-weight: 800;
-    color: #a56bff;
-    text-shadow:
-        0 0 15px rgba(122,44,255,0.6),
-        0 0 40px rgba(122,44,255,0.3);
-    letter-spacing: 2px;
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.2s;
+    font-size:14px;
 }
 
-.subtitle {
-    font-size: 18px;
-    color: #bbb;
-    margin-top: 10px;
-    opacity: 0.9;
+.nav-links a:hover{
+    color:#7a2cff;
+}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-box{
+    width:100%;
+    max-width:1200px;
+    padding:100px 40px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(122,44,255,0.2);
+    backdrop-filter:blur(8px);
+}
+
+.hero h1{
+    font-size:75px;
+    margin-bottom:20px;
+    text-shadow:0 0 25px rgba(122,44,255,0.5);
+}
+
+.hero p{
+    color:#bdbdbd;
+    font-size:20px;
 }
 
 /* BUTTONS */
-.button-row {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+.buttons{
+    margin-top:35px;
 }
 
-.button {
-    padding: 12px 22px;
-    background: rgba(122,44,255,0.15);
-    border: 1px solid rgba(122,44,255,0.4);
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: bold;
-    transition: 0.25s;
-    backdrop-filter: blur(10px);
+.button{
+    display:inline-block;
+    padding:14px 28px;
+    margin:10px;
+    border-radius:12px;
+    background:#7a2cff;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.2s;
 }
 
-.button:hover {
-    background: rgba(122,44,255,0.35);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(122,44,255,0.2);
+.button:hover{
+    transform:translateY(-3px);
+    background:#5f1fe0;
+    box-shadow:0 0 20px rgba(122,44,255,0.5);
 }
 
-/* IP */
-.ip {
-    margin-top: 18px;
-    color: #888;
-    font-size: 14px;
-    letter-spacing: 1px;
+/* SECTION */
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:80px 20px;
 }
 
-/* SECTIONS */
-section {
-    max-width: 950px;
-    margin: auto;
-    padding: 60px 20px;
+section h2{
+    font-size:40px;
+    margin-bottom:25px;
+    color:white;
 }
 
-h2 {
-    color: #a56bff;
-    margin-bottom: 18px;
-    font-size: 26px;
-    text-shadow: 0 0 15px rgba(122,44,255,0.2);
+/* CARDS */
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
 }
 
-/* CARD */
-.card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(122,44,255,0.15);
-    padding: 22px;
-    border-radius: 16px;
-    margin-top: 12px;
-    transition: 0.3s;
-    backdrop-filter: blur(10px);
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(122,44,255,0.2);
+    border-radius:18px;
+    padding:25px;
+    transition:0.3s;
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(122,44,255,0.4);
-    box-shadow: 0 10px 30px rgba(122,44,255,0.1);
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#7a2cff;
+}
+
+.card h3{
+    color:#7a2cff;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#c9c9c9;
+    margin-top:8px;
 }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 35px;
-    color: #666;
-    font-size: 13px;
-    border-top: 1px solid rgba(122,44,255,0.1);
-    margin-top: 40px;
+footer{
+    text-align:center;
+    padding:40px;
+    color:#666;
+    border-top:1px solid rgba(122,44,255,0.15);
+    margin-top:50px;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-    <h1>🌌 ElderHollowSMP 🌌</h1>
-    <p class="subtitle">A dark semi-vanilla world forged for legends.</p>
+<!-- NAVBAR -->
+<nav class="navbar">
 
-    <div class="button-row">
-        <a class="button" href="https://discord.gg/ePgsc9BQ" target="_blank">💬 Join Discord</a>
-        <a class="button" href="shop.html">🛒 VIP Shop</a>
+    <div class="logo">
+        🌌 ElderHollowSMP
     </div>
 
-    <div class="ip">IP: elderhollowsmp.minekeep.gg</div>
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="shop.html">SHOP</a>
+        <a href="index.html#rules">RULES</a>
+        <a href="checkout.html">CHECKOUT</a>
+        <a href="https://discord.gg/ePgsc9BQ" target="_blank">DISCORD</a>
+    </div>
+
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-box">
+
+        <h1>ELDERHOLLOWSMP</h1>
+
+        <p>
+            A dark semi-vanilla world forged for legends.
+        </p>
+
+        <div class="buttons">
+            <a class="button" href="shop.html">🛒 SHOP</a>
+            <a class="button" href="https://discord.gg/ePgsc9BQ" target="_blank">
+                💬 DISCORD
+            </a>
+        </div>
+
+    </div>
 </header>
 
-<section>
+<!-- RULES -->
+<section id="rules">
+
     <h2>📜 Server Rules</h2>
 
-    <div class="card">
-        <h3>⚠️ Core Rules</h3>
-        <p>• No cheating (hacks, x-ray, unfair mods)</p>
-        <p>• No exploiting bugs or glitches</p>
-        <p>• No duplication or abuse</p>
-        <p>• Respect all players</p>
+    <div class="card-grid">
+
+        <div class="card">
+            <h3>⚠️ Core Rules</h3>
+            <p>• No cheating</p>
+            <p>• No exploiting bugs</p>
+            <p>• Respect all players</p>
+            <p>• No toxicity</p>
+            <p>• No racism</p>
+        </div>
+
+        <div class="card">
+            <h3>🎮 Gameplay</h3>
+            <p>• Fair PvP only</p>
+            <p>• No macros</p>
+            <p>• No spawn abuse</p>
+            <p>• Keep survival balanced</p>
+        </div>
+
+        <div class="card">
+            <h3>🏗️ Building</h3>
+            <p>• No lag machines</p>
+            <p>• Respect player builds</p>
+            <p>• No offensive structures</p>
+        </div>
+
     </div>
 
-    <div class="card">
-        <h3>🎮 Gameplay Rules</h3>
-        <p>• No unfair PvP macros</p>
-        <p>• No spawn camping abuse</p>
-        <p>• No griefing protected bases</p>
-        <p>• Keep survival fair</p>
-    </div>
-
-    <div class="card">
-        <h3>🏗️ Building Rules</h3>
-        <p>• No inappropriate builds</p>
-        <p>• No lag machines</p>
-        <p>• Respect other builds</p>
-    </div>
-
-    <div class="card">
-        <h3>💬 Chat Rules</h3>
-        <p>• No spam</p>
-        <p>• No toxicity</p>
-        <p>• English / French allowed</p>
-    </div>
-
-    <div class="card">
-        <h3>⚖️ Punishments</h3>
-        <p>• Warning → Temp Ban → Permanent Ban</p>
-    </div>
 </section>
 
-<section>
+<!-- FEATURES -->
+<section id="features">
+
     <h2>⚔️ Features</h2>
-    <div class="card">
-        <p>✔ Semi-Vanilla Survival</p>
-        <p>✔ Custom Events & Bosses</p>
-        <p>✔ Economy System (ElHollow)</p>
-        <p>✔ Premium Experience</p>
+
+    <div class="card-grid">
+
+        <div class="card">
+            <h3>🌍 Survival 🌍</h3>
+            <p>Semi-Vanilla SMP experience.</p>
+        </div>
+
+        <div class="card">
+            <h3>👑 custom 👑</h3>
+            <p>Custom armor and item</p>
+        </div>
+
+        <div class="card">
+            <h3>💰 Economy 💰</h3>
+            <p>Coins and progression system.</p>
+        </div>
+
     </div>
+
 </section>
 
+<!-- STAFF -->
 <section>
+
     <h2>👑 Staff</h2>
-    <div class="card">
-        <p>👑 Owner: Kitsuneblaze</p>
-        <p>💻 Developer: RulyScreecher</p>
-        <p>🛡️ Manager: White_DragonYT</p>
+
+    <div class="card-grid">
+
+        <div class="card">
+            <h3>👑 Owner</h3>
+            <p>KitsuneBlaze</p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Developer</h3>
+            <p>RulyScreecher</p>
+        </div>
+
+        <div class="card">
+            <h3>🛡️ Manager</h3>
+            <p>White_DragonYT</p>
+        </div>
+
     </div>
+
 </section>
 
 <footer>
-    © 2026 ElderHollowSMP • Built for legends • Beta server
+    © 2026 ElderHollowSMP • All rights reserved
 </footer>
 
 </body>
